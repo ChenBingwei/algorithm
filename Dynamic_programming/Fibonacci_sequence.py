@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+斐波那契数，通常用 F(n) 表示，形成的序列称为斐波那契数列。
+该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是：
+F(0) = 0,   F(1) = 1
+F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
+给定 N，计算 F(N)。
+"""
 from time import time
 
 
@@ -15,9 +22,9 @@ def PrintTime(func):
     return wrappers
 
 
-# fun1: 暴力递归
+# func1: 暴力递归
 @PrintTime
-def fun1(num):
+def func1(num):
     def fib(n):
         if n in [1, 2]:
             return 1
@@ -26,9 +33,9 @@ def fun1(num):
     return fib(num)
 
 
-# fun2: 通过list备忘录来减少重复计算
+# func2: 通过list备忘录来减少重复计算
 @PrintTime
-def fun2(num):
+def func2(num):
     def fib(n):
         if n < 1:
             return 0
@@ -46,9 +53,9 @@ def fun2(num):
     return fib(num)
 
 
-# fun3: 通过dict备忘录类减少重复计算
+# func3: 通过dict备忘录类减少重复计算
 @PrintTime
-def fun3(num):
+def func3(num):
     def fib(n):
         if n < 1:
             return 0
@@ -66,9 +73,9 @@ def fun3(num):
     return fib(num)
 
 
-# fun4: 字典迭代解法
+# func4: 字典迭代解法
 @PrintTime
-def fun4(num):
+def func4(num):
     def fib(n):
         fib_dict = {
             1: 1,
@@ -81,9 +88,9 @@ def fun4(num):
     return fib(num)
 
 
-# fun5: 进一步优化空间复杂度
+# func5: 进一步优化空间复杂度
 @PrintTime
-def fun5(num):
+def func5(num):
     def fib(n):
         if n == 0:
             return 0
@@ -101,29 +108,29 @@ def fun5(num):
 
 
 if __name__ == '__main__':
-    fun1(15)
-    fun2(15)
-    fun3(15)
-    fun4(15)
-    fun5(15)
+    func1(15)
+    func2(15)
+    func3(15)
+    func4(15)
+    func5(15)
 
-# func: fun1
+# func: func1
 # result: 610
 # spent time:0.2413 ms
 # ***************
-# func: fun2
+# func: func2
 # result: 610
 # spent time:0.0193 ms
 # ***************
-# func: fun3
+# func: func3
 # result: 610
 # spent time:0.0157 ms
 # ***************
-# func: fun4
+# func: func4
 # result: 610
 # spent time:0.0129 ms
 # ***************
-# func: fun5
+# func: func5
 # result: 610
 # spent time:0.0088 ms
 # ***************
