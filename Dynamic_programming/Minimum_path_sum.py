@@ -103,6 +103,19 @@ def func_3(grid_list):
     return minPathSum(grid_list)
 
 
+@utils.print_time
+def func_4(grid_list):
+    def minPathSum(grid):
+        dp = [float('inf')] * (len(grid[0]) + 1)
+        dp[1] = 0
+        for row in grid:
+            for idx, num in enumerate(row):
+                dp[idx + 1] = min(dp[idx], dp[idx + 1]) + num
+        return dp[-1]
+
+    return minPathSum(grid_list)
+
+
 if __name__ == '__main__':
     grid = [
         [5, 1, 0, 4, 0, 1, 1, 6, 7, 3, 9, 9, 4, 6, 8, 1],
@@ -128,3 +141,4 @@ if __name__ == '__main__':
     # func_1(grid)
     func_2(grid)
     func_3(grid)
+    func_4(grid)
