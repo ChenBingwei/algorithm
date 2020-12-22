@@ -12,23 +12,11 @@
 解释：11 = 5 + 5 + 1
 
 """
-from time import time
-
-
-def PrintTime(func):
-    def wrappers(*args, **kwargs):
-        start = time()
-        print('func: {}'.format(func.__name__))
-        print('result: {}'.format(func(*args, **kwargs)))
-        end = time()
-        print("spent time:%.4f ms" % ((end - start) * 1000))
-        print("***************")
-
-    return wrappers
+from common import utils
 
 
 # 暴力解法
-@PrintTime
+@utils.print_time
 def func1(coins, amount):
     def dp(n):
         # base case
@@ -49,7 +37,7 @@ def func1(coins, amount):
 
 
 # 采用备忘录
-@PrintTime
+@utils.print_time
 def func2(coins, amount):
     memo = {}
 
@@ -75,7 +63,7 @@ def func2(coins, amount):
 
 
 # 降低空间复杂度
-@PrintTime
+@utils.print_time
 def func3(coins, amount):
     def dp(n):
         # base case

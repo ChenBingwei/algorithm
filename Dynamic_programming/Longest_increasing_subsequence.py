@@ -14,23 +14,11 @@
 你算法的时间复杂度应该为O(n2) 。
 进阶: 你能将算法的时间复杂度降低到O(nlogn) 吗?
 """
-from time import time
-
-
-def print_time(func):
-    def wrappers(*args, **kwargs):
-        start = time()
-        print('func: {}'.format(func.__name__))
-        print('result: {}'.format(func(*args, **kwargs)))
-        end = time()
-        print("spent time:%.4f" % ((end - start) * 1000))
-        print("***************")
-
-    return wrappers
+from common import utils
 
 
 # 动态规划解法
-@print_time
+@utils.print_time
 def func1(num_list):
     def length_of_LIS(nums):
         dp_list = [1] * len(nums)
@@ -42,11 +30,13 @@ def func1(num_list):
 
     return length_of_LIS(num_list)
 
+
 # 二分查找解法（来源于patience sorting纸牌游戏）
-@print_time
+@utils.print_time
 def func2(num_list):
     def length_of_LIS(nums):
         pass
+
     return length_of_LIS(num_list)
 
 

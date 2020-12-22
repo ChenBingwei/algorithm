@@ -7,23 +7,11 @@ F(0) = 0,   F(1) = 1
 F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 给定 N，计算 F(N)。
 """
-from time import time
-
-
-def PrintTime(func):
-    def wrappers(*args, **kwargs):
-        start = time()
-        print('func: {}'.format(func.__name__))
-        print('result: {}'.format(func(*args, **kwargs)))
-        end = time()
-        print("spent time:%.4f ms" % ((end - start) * 1000))
-        print("***************")
-
-    return wrappers
+from common import utils
 
 
 # func1: 暴力递归
-@PrintTime
+@utils.print_time
 def func1(num):
     def fib(n):
         if n in [1, 2]:
@@ -34,7 +22,7 @@ def func1(num):
 
 
 # func2: 通过list备忘录来减少重复计算
-@PrintTime
+@utils.print_time
 def func2(num):
     def fib(n):
         if n < 1:
@@ -54,7 +42,7 @@ def func2(num):
 
 
 # func3: 通过dict备忘录类减少重复计算
-@PrintTime
+@utils.print_time
 def func3(num):
     def fib(n):
         if n < 1:
@@ -74,7 +62,7 @@ def func3(num):
 
 
 # func4: 字典迭代解法
-@PrintTime
+@utils.print_time
 def func4(num):
     def fib(n):
         fib_dict = {
@@ -89,7 +77,7 @@ def func4(num):
 
 
 # func5: 进一步优化空间复杂度
-@PrintTime
+@utils.print_time
 def func5(num):
     def fib(n):
         if n == 0:

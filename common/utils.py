@@ -1,3 +1,17 @@
+from time import time
+
+
+def print_time(func):
+    def wrappers(*args, **kwargs):
+        start = time()
+        print('func: {}'.format(func.__name__))
+        print('result: {}'.format(func(*args, **kwargs)))
+        end = time()
+        print("spent time:%.4f" % ((end - start) * 1000))
+        print("***************")
+
+    return wrappers
+
 def exchange_maskint(mask_int):
     bin_arr = ['0' for i in range(32)]
     for i in range(mask_int):
