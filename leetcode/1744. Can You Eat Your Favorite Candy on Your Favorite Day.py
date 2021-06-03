@@ -13,7 +13,6 @@
 # Return the constructed array answer.
 # 
 # 
-# 
 # Example 1:
 # 
 # Input: candiesCount = [7,4,5,3,8], queries = [[0,2,2],[4,2,4],[2,13,1000000000]]
