@@ -1,3 +1,4 @@
+import json
 from time import time
 
 
@@ -61,6 +62,43 @@ def exchange_maskint(mask_int):
     tmp_mask = [''.join(bin_arr[i * 8:i * 8 + 8]) for i in range(4)]
     tmp_mask = [str(int(tmp_str, 2)) for tmp_str in tmp_mask]
     return '.'.join(tmp_mask)
+
+
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+
+def stringToIntegerList(input):
+    return json.loads(input)
+
+
+def stringToListNode(input):
+    # Generate list from the input
+    numbers = stringToIntegerList(input)
+
+    # Now convert that list into linked list
+    dummyRoot = ListNode(0)
+    ptr = dummyRoot
+    for number in numbers:
+        ptr.next = ListNode(number)
+        ptr = ptr.next
+
+    ptr = dummyRoot.next
+    return ptr
+
+
+def listNodeToString(node):
+    if not node:
+        return "[]"
+
+    result = ""
+    while node:
+        result += str(node.val) + ", "
+        node = node.next
+    return "[" + result[:-2] + "]"
 
 
 if __name__ == '__main__':
