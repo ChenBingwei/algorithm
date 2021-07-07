@@ -64,19 +64,20 @@ class Solution:
         for k, v in talbe_dict.items():
             tmp_list = [k] + list(map(str, v))
             res_list.append(tmp_list)
-        res_list.sort(key=lambda x:int(x[0]))
-        res_list.insert(0,first_list)
+        res_list.sort(key=lambda x: int(x[0]))
+        res_list.insert(0, first_list)
         return res_list
+
 
 if __name__ == '__main__':
     res = Solution.displayTable(
         [
-            ["David","3","Ceviche"],
-            ["Corina","10","Beef Burrito"],
-            ["David","3","Fried Chicken"],
-            ["Carla","5","Water"],
-            ["Carla","5","Ceviche"],
-            ["Rous","3","Ceviche"]]
+            ["David", "3", "Ceviche"],
+            ["Corina", "10", "Beef Burrito"],
+            ["David", "3", "Fried Chicken"],
+            ["Carla", "5", "Water"],
+            ["Carla", "5", "Ceviche"],
+            ["Rous", "3", "Ceviche"]]
     )
     for i in res:
         print(i)
